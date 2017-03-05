@@ -12,18 +12,15 @@ A ideia principal é desenvolver uma aplicação web de gerenciamento de um fire
 - Definição de regras de acesso
 - Contra ataque (Beta)
 
-# Screenshots do Endian Firewall
-![print1](img/img01.png)
-
-
-![print3](img/img03.jpg)
-
-
-
-![print2](img/img02.png)
-
 # Mockups
+- Sistema
 ![sys](img/Sistema.png)
+
+
+- Status
 ![stt](img/Status.png)
+
+
+- Configurar
 ![conf1](img/Configurar1.png)
-![conf2](img/Configurar.png)
+![conf2](img/Configurar2.png)
