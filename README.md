@@ -24,3 +24,17 @@ A ideia principal é desenvolver uma aplicação web de gerenciamento de um fire
 - Configurar
 ![conf1](img/Configurar1.png)
 ![conf2](img/Configurar2.png)
+
+# Comandos
+Alguns comandos que poderão ser usados na configuração do serviço do firewall compreendem principalmente o `iptables`
+```
+iptables [comandos] [parametros] [extensoes]
+iptables -A INPUT -p tcp -s 187.145.23.76 -j DROP
+```
+Onde:
+-A: adiciona uma nova regra
+    INPUT: sinaliza que é para um pacote que está chegando
+-p: Protocolos
+-s: Source
+-j: O que se deve fazer
+    DROP: Descartar o pacote
