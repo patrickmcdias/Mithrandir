@@ -37,6 +37,9 @@ Onde:
    * OUTPUT: Sinaliza que é para um pacote que está saindo de máquina;
    * FORWARD: Sinaliza que é um pacote que será redirecionado para outra interface de rede;
 * -p: Protocolos
+   * tcp
+   * udp
+   * icmp
 * -s: Source
 * -j: O que se deve fazer
    * DROP: Nega o pacote sem enviar flag reset;
