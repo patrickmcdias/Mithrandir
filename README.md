@@ -32,9 +32,9 @@ iptables [comandos] [parametros] [extensoes]
 iptables -A INPUT -p tcp -s 187.145.23.76 -j DROP
 ```
 Onde:
--A: adiciona uma nova regra
-    INPUT: sinaliza que é para um pacote que está chegando
--p: Protocolos
--s: Source
--j: O que se deve fazer
-    DROP: Descartar o pacote
+* -A: adiciona uma nova regra
+    * INPUT: sinaliza que é para um pacote que está chegando
+* -p: Protocolos
+* -s: Source
+* -j: O que se deve fazer
+    * DROP: Descartar o pacote
