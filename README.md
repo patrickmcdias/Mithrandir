@@ -33,8 +33,12 @@ iptables -A INPUT -p tcp -s 187.145.23.76 -j DROP
 ```
 Onde:
 * -A: Adiciona uma nova regra
-    * INPUT: Sinaliza que é para um pacote que está chegando
+   * INPUT: Sinaliza que é para um pacote que está chegando na máquina;
+   * OUTPUT: Sinaliza que é para um pacote que está saindo de máquina;
+   * FORWARD: Sinaliza que é um pacote que será redirecionado para outra interface de rede;
 * -p: Protocolos
 * -s: Source
 * -j: O que se deve fazer
-    * DROP: Descartar o pacote
+   * DROP: Nega o pacote sem enviar flag reset;
+   * ACCEPT: Aceita pacote;
+   * REJECT: Nega pacote mas envia um flag reset;
