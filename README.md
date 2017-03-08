@@ -25,17 +25,17 @@ A ideia principal é desenvolver uma aplicação web de gerenciamento de um fire
 ![conf1](img/Configurar1.png)
 ![conf2](img/Configurar2.png)
 
-# Comandos
-Alguns comandos que poderão ser usados na configuração do serviço do firewall compreendem principalmente o `iptables`
-```
-iptables [comandos] [parametros] [extensoes]
-iptables -A INPUT -p tcp -s 187.145.23.76 -j DROP
-```
-Onde:
+# Comandos do Firewall
+Alguns comandos que poderão ser usados na configuração do serviço do firewall compreendem principalmente o `iptables`:
+``iptables [comandos] [parametros] [extensoes]``
+
+## Alguns [comandos]
 * -A: Adiciona uma nova regra
-   * INPUT: Sinaliza que é para um pacote que está chegando na máquina;
-   * OUTPUT: Sinaliza que é para um pacote que está saindo de máquina;
-   * FORWARD: Sinaliza que é um pacote que será redirecionado para outra interface de rede;
+  * INPUT: Sinaliza que é para um pacote que está chegando na máquina;
+  * OUTPUT: Sinaliza que é para um pacote que está saindo de máquina;
+  * FORWARD: Sinaliza que é um pacote que será redirecionado para outra interface de rede;
+  
+## Alguns [parametros]
 * -p: Protocolos
    * tcp
    * udp
@@ -45,3 +45,23 @@ Onde:
    * DROP: Nega o pacote sem enviar flag reset;
    * ACCEPT: Aceita pacote;
    * REJECT: Nega pacote mas envia um flag reset;
+
+## Algumas [extensoes]
+* -sport [port:port]: Porta de origem. 
+* -dport [port:port]: Porta de destino.
+  * Normalmente estas extensões são utilizadas com o comando -m do iptables. Trata-se de um direcionamento de porta(s) origem (-sport) para porta(s) destino(-dport). Pode-se inclusive definir um número padrão de portas para o acesso (port:port). Este comando pode ser utilizado tanto para portas TCP ou UDP.
+* -icmp-type: Especifica quais os tipos de pacote icmp podem passar ou não pelo firewall.
+
+### Bloquear IP
+Para bloquear um determinado IP que utiliza protocolo TCP, podemos usar:
+```
+iptables -A INPUT -s 10.0.0.5 -p tcp  -j DROP
+```
+
+
+
+
+
+
+# Login 
+http://giphy.com/gifs/lotr-gandalf-lord-of-the-rings-njYrp176NQsHS
