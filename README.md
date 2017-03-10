@@ -75,7 +75,7 @@ iptables -A INPUT -p tcp --destination-ports 80
 iptables -A INPUT -p udp --destination-ports 80
 ```
 ## Controle de programas
-Para bloquear o acesso de um programa à rede, por exemplo o jogo Tibia, é preciso consultar qual a porta do programa. Neste caso, a porta 7171
+Para bloquear o acesso de um programa à rede, por exemplo o jogo Tibia, é preciso consultar qual a porta do programa, neste caso, a porta 7171:
 ```
 iptables -A INPUT -p tcp --destination-ports 7171
 ```
