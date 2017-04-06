@@ -169,18 +169,25 @@
 
     <script type="text/javascript">
         const address = document.querySelector('#address'); //Era ip
-        const dport = document.querySelector('#dport');//
-        const sport = document.querySelector('#sport');//
+        const d_port = document.querySelector('#dport');//
+        const s_port = document.querySelector('#sport');//
         const filter = document.querySelector('#filter');//
         const protocol = document.querySelector('#protocol'); //Era prot
         const action = document.querySelector('#action');
         const submit = document.querySelector('#submit');
 
         submit.onclick = function(){
-            let link = 'http://localhost:1234/utils.php?options=-A&address='
-            +address.value+''
+            let link = `../api/utils.php?option=-A&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`
+
+            ajax('get', link, (response) => {});
         }
 
+        function ajax(method, url, callback){
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onload = () => callback(xhr.responseText);
+            xhr.send();
+        }
     </script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
