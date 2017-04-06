@@ -7,13 +7,12 @@
   $password = $_POST['password'];
 
   $userlistDb = new UserlistDb();
-  $result = $userlistDb->readByUsernamePassword($username,$password);
+  $result = $userlistDb->readByUsernamePassword($username, $password);
 
-  if($result !== false){
+  if($result != false){
     $_SESSION["user_id"] = $username;
-    header("index.html");
+    header("Location: ../public/home.html");
   }else{
-    header("/public/js/home.html");
+    header("Location: ../index.html");
   }
-  }
- ?>
+?>

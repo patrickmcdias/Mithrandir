@@ -12,14 +12,14 @@
     }
 
     public function readByUsernamePassword($username, $password){
-      $password = md5($password);
-      $sql = "seelct * from userlist WHERE login = '{$username}' and senha = '{$password}'";
+      //$password = md5($password);
+      $sql = "select * from userlist where username = '{$username}' and password = '{$password}'";
       $result = $this->connection->query($sql);
 
       if($result == false)
         return false;
       else {
-          return $result->fetch();
+         return $result->fetch();
       }
     }
   }

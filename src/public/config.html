@@ -129,10 +129,10 @@
             <input class="form-control" id="address" placeholder="IP" data-mask="099.099.099.099">
 
             <label for="dport">Destination Port</label>
-            <input class="form-control" id="dport" placeholder="Destination Port" data-mask="099.099.099.099">
+            <input class="form-control" id="dport" placeholder="Destination Port">
 
             <label for="sport">Source Port</label>
-            <input class="form-control" id="sport" placeholder="Source Port" data-mask="099.099.099.099">
+            <input class="form-control" id="sport" placeholder="Source Port">
         </div>
 
         <div>
@@ -158,8 +158,9 @@
         </div>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">Submit</button>
-    <button class="btn btn-lg btn-primary btn-block" type="cancel">Cancel</button>
+    <button class="btn btn-lg btn-primary btn-block" id="submit">Submit</button>
+    <button class="btn btn-lg btn-primary btn-block" id="btnDelete">Delete</button>
+    <button class="btn btn-lg btn-primary btn-block">Cancel</button>
     <!-- Site footer -->
     <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
@@ -167,17 +168,22 @@
     </div> <!-- /container -->
 
     <script type="text/javascript">
-        const address = document.querySelector('#address'); //Era ip
-        const d_port = document.querySelector('#dport');//
-        const s_port = document.querySelector('#sport');//
-        const filter = document.querySelector('#filter');//
-        const protocol = document.querySelector('#protocol'); //Era prot
+        const address = document.querySelector('#address');
+        const d_port = document.querySelector('#dport');
+        const s_port = document.querySelector('#sport');
+        const filter = document.querySelector('#filter');
+        const protocol = document.querySelector('#protocol');
         const action = document.querySelector('#action');
         const submit = document.querySelector('#submit');
+        const btnDelete = document.querySelector('#btnDelete');
 
         submit.onclick = function(){
-            let link = `../api/utils.php?option=-A&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`
+            let link = `../api/utils.php?option=-A&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`;
+            ajax('get', link, (response) => {});
+        }
 
+        btnDelete.onclick = function(){
+            let link = `../api/utils.php?option=-D&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`;
             ajax('get', link, (response) => {});
         }
 

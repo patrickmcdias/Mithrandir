@@ -127,7 +127,7 @@
               <table class="table table-striped" id="statusTable">
                   <thead>
                       <th>ID</th>
-                      <th>IP adress</th>
+                      <th>IP address</th>
                       <th>Source Port</th>
                       <th>Destination Port</th>
                       <th>Protocol</th>
@@ -135,24 +135,6 @@
                       <th>Action</th>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td>Id1</td>
-                          <td>ip1</td>
-                          <td>sp1</td>
-                          <td>dp1</td>
-                          <td>p1</td>
-                          <td>f1</td>
-                          <td>a1</td>
-                      </tr>
-                      <tr>
-                          <td>Id2</td>
-                          <td>ip2</td>
-                          <td>sp2</td>
-                          <td>dp2</td>
-                          <td>p2</td>
-                          <td>f2</td>
-                          <td>a2</td>
-                      </tr>
                   </tbody>
               </table>
           </div>
@@ -165,32 +147,45 @@
       </div> <!-- /container -->
 
       <script>
-            //const tableContent = document.querySelector('#statusTable tbody');
-            // loadClickInLastRowStatusTable();
-            //
-            // function loadClickInLastRowStatusTable(){
-            //       const lastColumnsStatusTable = tableContent.querySelectorAll('tr:last-child td');
-            //       for(let column of lastColumnsStatusTable){
-            //           column.onclick = function(event){
-            //               let row = event.target.parentNode;
-            //               const sendID = row.dataset.id;
-            //               const sendIP = row.dataset.ip;
-            //               const sendSport = row.dataset.sport;
-            //               const sendDport = row.dataset.dport;
-            //               const sendProtocol = row.dataset.protocol;
-            //               const sendFilter = row.dataset.filter;
-            //               const sendAction = row.dataset.action;
-            //               console.log(sendID);
-            //               console.log(sendIP);
-            //               console.log(sendSport);
-            //               console.log(sendDport);
-            //               console.log(sendProtocol);
-            //               console.log(sendFilter);
-            //               console.log(sendAction);
-            //           }
-            //       }
-            //   }
+          const table = document.querySelector('#statusTable tbody');
+          let id;
+          let address;
+          let s_port;
+          let d_port;
+          let protocol;
+          let filter;
+          let action;
+          let command;
+          let link = `../api/list.php`;
+          let insertTable;
 
+          var xhr = new XMLHttpRequest();
+          xhr.open('get', link);
+          xhr.onload = function(){
+              var getJson = JSON.parse(xhr.responseText);
+              for (var jsonId in getJson) {
+                  id = getJson[jsonId].id;
+                  action = getJson[jsonId].action;
+                  address = getJson[jsonId].address;
+                  s_port = getJson[jsonId].s_port;
+                  d_port = getJson[jsonId].d_port;
+                  protocol = getJson[jsonId].protocol;
+                  filter = getJson[jsonId].filter;
+                  action = getJson[jsonId].action;
+                  command = getJson[jsonId].command;
+                  insertTable = `<tr>
+                          <td>${id}</td>
+                          <td>${address}</td>
+                          <td>${s_port}</td>
+                          <td>${d_port}</td>
+                          <td>${protocol}</td>
+                          <td>${filter}</td>
+                          <td>${action}</td>
+                      </tr>`
+                      table.innerHTML += insertTable;
+              }
+          }
+          xhr.send();
       </script>
 
       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->

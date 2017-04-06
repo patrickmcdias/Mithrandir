@@ -16,13 +16,15 @@
 
         return $result->fetchAll();
     }
+
     public function deleteRow ($id){
-      $sql = "delete from access_policy where id = ${id}"
+      $sql = "delete from access_policy where id = '{$id}' ";
 
       $this->connection->exec($sql);
     }
+
     public function readByInfo($addressDb, $s_portDb, $d_portDb, $protocolDb, $filterDb, $actionDb){
-      $sql = "select id from access_policy where address='{$addressDb}', s_port='{$s_portDb}', d_port='{$d_portDb}', protocol='{$protocolDb}', filter='{$filterDb}', action='{$action}'";
+      $sql = "select id from access_policy where address='{$addressDb}' and s_port = '{$s_portDb}' and d_port = '{$d_portDb}' and protocol = '{$protocolDb}' and filter = '{$filterDb}' and action = '{$actionDb}';";
       $result = $this->connection->query($sql);
 
       if($result == false){
@@ -31,3 +33,4 @@
         return $result->fetch();
       }
   }
+}

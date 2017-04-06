@@ -21,26 +21,30 @@
   if ($ip){
     $command.="-s {$ip} ";
   }else{
-    $ip = "-"
+    $ip = "-";
   }
   if ($prot){
     $command.="-p {$prot} ";
   }
   if ($d_port){
-    $command.="--destination-ports {$d_port} ";
+    $command.="--dport {$d_port} ";
   }else{
     $d_port="-";
   }
   if ($s_port){
-    $command.="--source-ports {$s_port} ";
+    $command.="--sport {$s_port} ";
   }else{
-    $s_port="-"
+    $s_port="-";
   }
   if ($action){
     $command.="-j {$action}";
   }
 
-  shell_exec("sudo ".$command);
+  // $teste = "sudo su - {$command}";
+  // shell_exec('sudo -u root -S '.$command.' < /var/www/html/src/passwd.secret');
+  // echo $teste;
+  // shell_exec('sudo su -');
+  // shell_exec($command);
 
   $accessPolicyDb = new AccessPolicyDb();
   if($option == "-A"){
@@ -48,7 +52,8 @@
     echo "New policy added successfully";
   }
   if ($option == "-D"){
-    $id = access-policy-db->readByInfo($ip, $s_port, $d_port, $prot, $filter, $action);
+    $id = $accessPolicyDb->readByInfo($ip, $s_port, $d_port, $prot, $filter, $action);
+
     $accessPolicyDb->deleteRow($id);
     echo "Policy was removed successfully";
   }
