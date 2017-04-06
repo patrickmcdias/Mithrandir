@@ -32,5 +32,7 @@ create table userlist(
     primary key ( id )
 )
 
+alter table access_policy AUTO_INCREMENT = 1;
+
 insert into userlist (username, password)
     values ('admin', 'admin');

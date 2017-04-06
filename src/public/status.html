@@ -14,6 +14,12 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .copyleft {
+            font-size: 25px;
+            font-weight: bold;
+            display:inline-block;
+            transform: rotate(180deg);
+        }
         body {
           padding-top: 20px;
         }
@@ -133,6 +139,7 @@
                       <th>Protocol</th>
                       <th>Filter</th>
                       <th>Action</th>
+                      <th></th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -142,7 +149,7 @@
           </script>
           <!-- Site footer -->
           <footer class="footer">
-              <p>&copy; 2016 Company, Inc.</p>
+              <h class="copyleft">&copy;</h><h>  Mithrandir, 2017</h>
           </footer>
       </div> <!-- /container -->
 
@@ -181,6 +188,7 @@
                           <td>${protocol}</td>
                           <td>${filter}</td>
                           <td>${action}</td>
+                          <td><a href="../ api/delete.php?id=${id}">Delete</a></td>
                       </tr>`
                       table.innerHTML += insertTable;
               }

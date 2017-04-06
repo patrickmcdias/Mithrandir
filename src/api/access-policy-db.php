@@ -14,13 +14,25 @@
 
         $result = $this->connection->query($sql);
 
-        return $result->fetchAll();
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function deleteRow ($id){
       $sql = "delete from access_policy where id = '{$id}' ";
 
       $this->connection->exec($sql);
+    }
+
+
+    public function readById($id){
+      $sql = "select * from access_policy where id={$id}";
+      $result = $this->connection->query($sql);
+
+      if($result == false){
+        return false;
+      }else{
+        return $result->fetch(PDO::FETCH_ASSOC);
+      }
     }
 
     public function readByInfo($addressDb, $s_portDb, $d_portDb, $protocolDb, $filterDb, $actionDb){
@@ -30,7 +42,7 @@
       if($result == false){
         return false;
       }else{
-        return $result->fetch();
+        return $result->fetch(PDO::FETCH_ASSOC);
       }
   }
 }
