@@ -116,16 +116,15 @@
               <h3 class="text-muted">Mithrandir</h3>
               <nav>
                   <ul class="nav nav-justified">
-                      <li><a href="#">Home</a></li>
+                      <li><a href="home.html">Home</a></li>
                       <li><a href="config.html">Configure</a></li>
-                      <li><a href="#">Firewall</a></li>
                       <li class="active"><a href="status.html">Status</a></li>
                   </ul>
               </nav>
           </div>
 
           <div class="statusTable">
-              <table class="table table-striped">
+              <table class="table table-striped" id="statusTable">
                   <thead>
                       <th>ID</th>
                       <th>IP adress</th>
@@ -136,6 +135,24 @@
                       <th>Action</th>
                   </thead>
                   <tbody>
+                      <tr>
+                          <td>Id1</td>
+                          <td>ip1</td>
+                          <td>sp1</td>
+                          <td>dp1</td>
+                          <td>p1</td>
+                          <td>f1</td>
+                          <td>a1</td>
+                      </tr>
+                      <tr>
+                          <td>Id2</td>
+                          <td>ip2</td>
+                          <td>sp2</td>
+                          <td>dp2</td>
+                          <td>p2</td>
+                          <td>f2</td>
+                          <td>a2</td>
+                      </tr>
                   </tbody>
               </table>
           </div>
@@ -147,10 +164,39 @@
           </footer>
       </div> <!-- /container -->
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+      <script>
+            //const tableContent = document.querySelector('#statusTable tbody');
+            // loadClickInLastRowStatusTable();
+            //
+            // function loadClickInLastRowStatusTable(){
+            //       const lastColumnsStatusTable = tableContent.querySelectorAll('tr:last-child td');
+            //       for(let column of lastColumnsStatusTable){
+            //           column.onclick = function(event){
+            //               let row = event.target.parentNode;
+            //               const sendID = row.dataset.id;
+            //               const sendIP = row.dataset.ip;
+            //               const sendSport = row.dataset.sport;
+            //               const sendDport = row.dataset.dport;
+            //               const sendProtocol = row.dataset.protocol;
+            //               const sendFilter = row.dataset.filter;
+            //               const sendAction = row.dataset.action;
+            //               console.log(sendID);
+            //               console.log(sendIP);
+            //               console.log(sendSport);
+            //               console.log(sendDport);
+            //               console.log(sendProtocol);
+            //               console.log(sendFilter);
+            //               console.log(sendAction);
+            //           }
+            //       }
+            //   }
+
+      </script>
+
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.min.js"></script>
+    </body>
 </html>
