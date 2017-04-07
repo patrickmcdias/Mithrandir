@@ -1,0 +1,47 @@
+.logo{
+    background-image: url(../../img/Logo.png);
+    width:390px;
+    height:190px;
+}
+body{
+    background-image: url(../../img/bwall2.jpg);
+}
+fieldset>div{
+    display: inline-block;
+}
+
+.inputs{
+    width: 49%;
+    margin-left: 1%;
+}
+
+.dropDowns{
+    width: 48%;
+    margin-left: 1%;
+}
+
+.button{
+    display: flex;
+    margin-top: 5%;
+    margin-left: 85%;
+}
+
+.btn{
+    color: #333;
+    background-color: #e5e5e5;
+    border-color: #777;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    background-repeat: repeat-x;
+}
+
+.bone{
+    margin-right: 7px;
+    padding:
+}
+
+footer.footer{
+    padding-bottom: 0px;
+    padding-top: 20px;
+}

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/config.css" rel="stylesheet">
     <style>
         .copyleft {
             font-size: 25px;
@@ -62,8 +63,8 @@
           background-color: #e5e5e5; /* Old browsers */
           background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
           background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
-          background-image:      -o-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
-          background-image:         linear-gradient(to bottom, #f5f5f5 0%,#e5e5e5 100%);
+          background-image: -o-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
+          background-image: linear-gradient(to bottom, #f5f5f5 0%,#e5e5e5 100%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
           background-repeat: repeat-x; /* Repeat the gradient */
           border-bottom: 1px solid #d5d5d5;
@@ -118,6 +119,7 @@
     <div class="container">
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="logo"></div>
       <div class="masthead">
         <h3 class="text-muted">Mithrandir</h3>
         <nav>
@@ -130,7 +132,8 @@
       </div>
 
       <div class="form-group">
-        <div>
+      <fieldset>
+        <div class="inputs">
             <label for="address">IP</label>
             <input class="form-control" id="address" placeholder="IP" data-mask="099.099.099.099">
 
@@ -140,33 +143,36 @@
             <label for="sport">Source Port</label>
             <input class="form-control" id="sport" placeholder="Source Port">
         </div>
-
-        <div>
-            <label for="filter">Filter</label>
-            <select class="form-control" id="filter">
-                <option value="INPUT">Input</option>
-                <option value="OUTPUT">Output</option>
-                <option value="FORWARD">Forward</option>
-            </select>
-
+        <div class="dropDowns">
             <label for="protocol">Protocol</label>
             <select class="form-control" id="protocol">
                 <option value="tcp">TCP</option>
                 <option value="udp">UDP</option>
             </select>
-
+            <label for="filter">Filter</label>
+            <select class="form-control" id="filter">
+              <option value="INPUT">Input</option>
+              <option value="OUTPUT">Output</option>
+              <option value="FORWARD">Forward</option>
+            </select>
             <label for="action">Action</label>
-            <select class="form-control" id="action">
-                <option value="ACCEPT">Accept</option>
-                <option value="DROP">Drop</option>
-                <option value="REJECT">Reject</option>
+              <select class="form-control" id="action">
+              <option value="ACCEPT">Accept</option>
+              <option value="DROP">Drop</option>
+              <option value="REJECT">Reject</option>
             </select>
         </div>
+    </fieldset>
     </div>
+    <div class="button">
+        <div class="bone">
+          <button class="btn btn-lg btn-primary btn-block" id="submit">Submit</button>
+        </div>
+        <div class="two">
+          <button class="btn btn-lg btn-primary btn-block" href>Cancel</button>
+        </div>
+  </div>
 
-    <button class="btn btn-lg btn-primary btn-block" id="submit">Submit</button>
-    <button class="btn btn-lg btn-primary btn-block" id="btnDelete">Delete</button>
-    <button class="btn btn-lg btn-primary btn-block" href>Cancel</button>
     <!-- Site footer -->
     <footer class="footer">
         <h class="copyleft">&copy;</h><h>  Mithrandir, 2017</h>
@@ -181,24 +187,18 @@
         const protocol = document.querySelector('#protocol');
         const action = document.querySelector('#action');
         const submit = document.querySelector('#submit');
-        const btnDelete = document.querySelector('#btnDelete');
 
         submit.onclick = function(){
             let link = `../api/utils.php?option=-A&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`;
-            ajax('get', link, (response) => {});
-        }
-
-        btnDelete.onclick = function(){
-            let link = `../api/utils.php?option=-D&address=${address.value}&dport=${d_port.value}&sport=${s_port.value}&filter=${filter.value}&prot=${protocol.value}&action=${action.value}`;
-            ajax('get', link, (response) => {});
-        }
-
-        function ajax(method, url, callback){
             let xhr = new XMLHttpRequest();
-            xhr.open(method, url);
-            xhr.onload = () => callback(xhr.responseText);
+            xhr.open('get', link);
+            xhr.onload = function(){
+                location.href ="status.html";
+            }
             xhr.send();
         }
+
+
     </script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/status.css" rel="stylesheet">
     <style>
         .copyleft {
             font-size: 25px;
@@ -118,6 +119,7 @@
       <div class="container">
           <!-- The justified navigation menu is meant for single line per list item.
                Multiple lines will require custom code not provided by Bootstrap. -->
+          <div class="logo"></div>
           <div class="masthead">
               <h3 class="text-muted">Mithrandir</h3>
               <nav>
@@ -130,16 +132,16 @@
           </div>
 
           <div class="statusTable">
-              <table class="table table-striped" id="statusTable">
+              <table class="table" id="statusTable">
                   <thead>
-                      <th>ID</th>
-                      <th>IP address</th>
-                      <th>Source Port</th>
-                      <th>Destination Port</th>
-                      <th>Protocol</th>
-                      <th>Filter</th>
-                      <th>Action</th>
-                      <th></th>
+                      <th class="active">ID</th>
+                      <th class="active">IP address</th>
+                      <th class="active">Source Port</th>
+                      <th class="active">Destination Port</th>
+                      <th class="active">Protocol</th>
+                      <th class="active">Filter</th>
+                      <th class="active">Action</th>
+                      <th class="active"></th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -181,14 +183,14 @@
                   action = getJson[jsonId].action;
                   command = getJson[jsonId].command;
                   insertTable = `<tr>
-                          <td>${id}</td>
-                          <td>${address}</td>
-                          <td>${s_port}</td>
-                          <td>${d_port}</td>
-                          <td>${protocol}</td>
-                          <td>${filter}</td>
-                          <td>${action}</td>
-                          <td><a href="../ api/delete.php?id=${id}">Delete</a></td>
+                          <td class="active">${id}</td>
+                          <td class="active">${address}</td>
+                          <td class="active">${s_port}</td>
+                          <td class="active">${d_port}</td>
+                          <td class="active">${protocol}</td>
+                          <td class="active">${filter}</td>
+                          <td class="active">${action}</td>
+                          <td class="active"><a href="../api/delete.php?id=${id}">Delete</a></td>
                       </tr>`
                       table.innerHTML += insertTable;
               }

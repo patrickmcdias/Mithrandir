@@ -1,0 +1,21 @@
+.logo{
+    background-image: url(../../img/Logo.png);
+    width:390px;
+    height:190px;
+}
+
+body{
+    background-image: url(../../img/bwall2.jpg);
+}
+
+.text{
+    text-align: justify;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+
+footer.footer{
+    padding-bottom: 0px;
+    padding-top: 20px;
+}

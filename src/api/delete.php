@@ -19,4 +19,4 @@
    $output = stream_get_contents($stream_out);
    echo "<pre>{$output}</pre>";
 
-   echo "Policy was removed successfully";
+   header ("Location: ../public/status.html");

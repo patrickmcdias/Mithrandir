@@ -1,0 +1,43 @@
+.logo{
+    background-image: url(../../img/Logo.png);
+    width:390px;
+    height:190px;
+}
+
+body{
+    background-image: url(../../img/bwall2.jpg);
+}
+
+th, tr, td{
+    text-align: center;
+
+}
+
+.table>tbody>tr.active>td,
+.table>tbody>tr.active>th,
+.table>tbody>tr>td.active,
+.table>tbody>tr>th.active,
+.table>tfoot>tr.active>td,
+.table>tfoot>tr.active>th,
+.table>tfoot>tr>td.active,
+.table>tfoot>tr>th.active,
+.table>thead>tr.active>td,
+.table>thead>tr.active>th,
+.table>thead>tr>td.active,
+.table>thead>tr>th.active{
+    background-color: rgba(255, 255, 255, 0.68);
+}
+
+table{
+    margin-top: 12px;
+}
+
+.table>thead,
+.table>tfoot{
+    border-radius: 10px;
+}
+
+footer.footer{
+    padding-bottom: 0px;
+    padding-top: 20px;
+}

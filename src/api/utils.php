@@ -40,6 +40,9 @@
     $command.="-j {$action}";
   }
 
+  $accessPolicyDb = new AccessPolicyDb();
+  $accessPolicyDb->create($ip, $s_port, $d_port, $prot, $filter, $action, $command);
+
   $connection = ssh2_connect('localhost', 22);
   ssh2_auth_password($connection, 'ubuntu', 'ubuntu');
   $stream = ssh2_exec($connection, "sudo {$command}");
@@ -48,17 +51,4 @@
   $output = stream_get_contents($stream_out);
   echo "<pre>{$output}</pre>";
 
-  // $stringx = "iptables -A INPUT -s 192.168.4.3 -p tcp --dport 80 -j DENY";
-  // str_replace("-A", "-D", $stringx);
-
-  $accessPolicyDb = new AccessPolicyDb();
-  //if($option == "-A"){
-    $accessPolicyDb->create($ip, $s_port, $d_port, $prot, $filter, $action, $command);
-    echo "New policy added successfully";
-  //}
-  // if ($option == "-D"){
-  //   $result = $accessPolicyDb->readByInfo($ip, $s_port, $d_port, $prot, $filter, $action);
-  //   $id = $result['id'];
-  //   $accessPolicyDb->deleteRow($id);
-  //   echo "Policy was removed successfully";
-  // }
+  header ("Location: ../public/status.html");

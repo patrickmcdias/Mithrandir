@@ -19,7 +19,6 @@
 
     public function deleteRow ($id){
       $sql = "delete from access_policy where id = '{$id}' ";
-
       $this->connection->exec($sql);
     }
 
